@@ -1,0 +1,10 @@
+   # Learning Log
+
+   ## Day 1 — 29 Oct 2026
+   - Created PortSwigger Web Security Academy account
+   - Read the Web LLM attacks topic
+   - Installed Burp Suite; intercepted and modified requests in Repeater
+   - Key idea: an LLM is a new entry point; the damage comes from the APIs/tools it can call
+
+   ## Day 2 — 30 Oct 2026
+   - Created this repo
