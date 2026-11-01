@@ -110,7 +110,11 @@ Log line for A06:
   verified on-device before install; build artifacts signed/verified before deployment;
   no untrusted deserialization. Learned: in AI, pickle-based model files can execute
   code on load, so prefer safetensors and scan models from public hubs.
-- **A09 Security Logging and Alerting Failures** → ...
+- **A09 Security Logging and Alerting Failures** → Centralized logging in Log Analytics /
+  App Insights with end-to-end tracing (client IP → server); alerts for traffic spikes and
+  failed logins; minimal personal data (email for tracing only). Learned: email and IP
+  count as personal data under GDPR/DPDP, so use retention limits, access controls,
+  pseudonymous IDs; never log tokens or auth headers.
 - **A10 Mishandling of Exceptional Conditions** → ...
 
 ---
