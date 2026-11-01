@@ -74,7 +74,7 @@ Plan: 30 weeks · 1 hr weekdays · 2 hrs weekends · started 29 Oct 2026
   Learned: retries need exponential backoff + jitter, circuit breakers, and idempotent
   writes to avoid retry storms and duplicate actions.
 
-##Key takeaways from the mapping
+### Key takeaways from the mapping
 - Strongest areas: authentication, API gateway security, secrets management, IoT update integrity
 - To deepen: injection (SQL/NoSQL), password reset security, zero trust, pipeline identity
 
