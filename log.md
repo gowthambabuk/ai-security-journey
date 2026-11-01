@@ -115,7 +115,10 @@ Log line for A06:
   failed logins; minimal personal data (email for tracing only). Learned: email and IP
   count as personal data under GDPR/DPDP, so use retention limits, access controls,
   pseudonymous IDs; never log tokens or auth headers.
-- **A10 Mishandling of Exceptional Conditions** → ...
+- **A10 Mishandling of Exceptional Conditions** → Clients saw generic error messages (no
+  stack traces); no fail-open paths; timeouts and retries tuned to backend behavior.
+  Learned: retries need exponential backoff + jitter, circuit breakers, and idempotent
+  writes to avoid retry storms and duplicate actions.
 
 ---
 
