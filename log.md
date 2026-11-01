@@ -51,52 +51,6 @@ Plan: 30 weeks · 1 hr weekdays · 2 hrs weekends · started 29 Oct 2026
   validation, and whitelisted fields/operators; otherwise NoSQL operator injection
   ($ne, $gt, $regex) and SQL injection become possible. Never reached shell/eval.
   Follow-up: practise SQLi/NoSQLi in PortSwigger labs (Week 5).
-
-Moving to Microsoft identity was the right call, and there’s a key lesson in it.
-Why SHA-256 is wrong for passwords: it’s built to be fast. A modern GPU can try billions of SHA-256 guesses per second, so leaked hashes get cracked quickly. Passwords need deliberately slow, salted algorithms: Argon2id (the current recommendation), bcrypt, or scrypt. Delegating authentication to Microsoft identity avoids the problem entirely, because you don’t store passwords at all. This is a classic interview question: “How would you store passwords?” Now you have a real story to tell.
-About encryption at rest by default: it’s good, but know its limits. Provider encryption protects against stolen disks or backups. It does not help if someone gets into the app or the database account, because the data decrypts automatically for them. The next levels are customer-managed keys (in Key Vault) and field-level encryption for very sensitive fields.
-Log line for A04:
-- **A04 Cryptographic Failures** → Early on used SHA-256 for passwords, then moved auth to
-  Microsoft identity (no passwords stored). TLS everywhere; encryption at rest handled by
-  managed DBs (Cosmos DB, MongoDB). Learned: SHA-256 is too fast for passwords; use
-  Argon2id/bcrypt. Provider encryption at rest doesn't protect against app/account
-  compromise; customer-managed keys and field-level encryption go further.
-A05 Injection
-In your Flask and Go APIs, did you build SQL with string concatenation, or use parameterized queries / an ORM?
-With MongoDB/Cosmos, were queries ever built directly from request JSON? (NoSQL injection, like {"$ne": null} tricks)
-Any place where user input reached a shell command, template, or eval?
-queries were built based on the request by the client. it was static queries. Then moved to dynamic query building ways. It was built directly from request. no didn't reach
-This one’s worth pausing on, because queries built directly from the client’s request are a classic injection risk. Whether it was actually exploitable depends on the details.
-How NoSQL injection works. Say a login query is built from the request body:
-js
-db.users.find({ username: req.body.username, password: req.body.password })
-An attacker sends:
-json
-{ "username": "admin", "password": { "$ne": null } }
-Now the query means “password is not null”, which matches every user, so they log in as admin. The same trick works with $gt, $regex, or $where. Cosmos SQL-API queries built with string concatenation have the classic SQL injection problem too.
-It was probably safe if:
-Input was validated against a schema (types enforced, so objects rejected where strings are expected)
-Only whitelisted field names and operators were allowed
-Values went in as parameters, such as Cosmos parameterized queries (@param)
-Important, given what you just told me:
-Don’t write this one in your public repo as a real finding. If any version of that dynamic query code is still running, describing it publicly is risky for Ericsson and for you.
-If you think current code might be vulnerable, check it privately at work and raise it through Ericsson’s normal internal channels (your team or the security team). Doing that well is real AppSec experience, and it’s an excellent interview story afterwards: “I spotted a potential injection risk in our own code and got it fixed.”
-Log line for A05 (generic and safe):
-- **A05 Injection** → Worked with APIs where database queries were built dynamically from
-  client requests (SQL & NoSQL). Learned: dynamic queries need parameterization, schema
-  validation, and whitelisted fields/operators; otherwise NoSQL operator injection
-  ($ne, $gt, $regex) and SQL injection become possible. Never reached shell/eval.
-  Follow-up: practise SQLi/NoSQLi in PortSwigger labs (Week 5).
-A06 Insecure Design
-Did your APIs have rate limiting? APIM has policies for this.
-In multi-tenant systems, was tenant isolation designed in from the start, or added later?
-Did anyone do threat modeling or security reviews before building features?
-yes APIs have rate limiting to avoid throttling, and usually its not a static, its dynamic based on server resources and capacity. isolation designed in from start. I did
-That’s strong, and the last part matters a lot. You did security reviews yourself. That’s direct AppSec experience. Put it on your resume and LinkedIn experience as something like “Conducted security design reviews for new features”. Recruiters for security roles look for exactly that.
-One nuance on rate limiting (good interview material). Capacity-based dynamic limits protect availability. Security rate limiting has a different goal: stopping abuse per user, per IP, or per API key. A capacity limit won’t stop an attacker trying 5 passwords a minute on one account, since that never stresses the server. Strong designs layer both:
-Global or dynamic limits to protect capacity
-Per-identity limits on sensitive endpoints (login, OTP, password reset) to stop brute force and enumeration
-Log line for A06:
 - **A06 Insecure Design** → APIs had dynamic rate limiting based on server capacity;
   tenant isolation designed in from the start; I conducted security reviews of features
   before build. Learned: capacity limits protect availability, but abuse needs
