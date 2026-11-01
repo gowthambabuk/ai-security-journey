@@ -106,7 +106,10 @@ Log line for A06:
   password reset flow. Learned: JWTs stay valid until expiry, so pair short lifetimes with
   refresh-token revocation; custom reset flows need random single-use short-lived tokens
   (stored hashed), no user enumeration, session invalidation, Host-header protection.
-- **A08 Software or Data Integrity Failures** → ...
+- **A08 Software or Data Integrity Failures** → IoT firmware updates were signed and
+  verified on-device before install; build artifacts signed/verified before deployment;
+  no untrusted deserialization. Learned: in AI, pickle-based model files can execute
+  code on load, so prefer safetensors and scan models from public hubs.
 - **A09 Security Logging and Alerting Failures** → ...
 - **A10 Mishandling of Exceptional Conditions** → ...
 
