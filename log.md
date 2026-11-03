@@ -80,8 +80,15 @@ Plan: 30 weeks · 1 hr weekdays · 2 hrs weekends · started 29 Oct 2026
 
 ---
 
+## Day 5–6 — Mon 2 / Tue 3 Nov 2026
+- Set up Hashnode blog: gowthambabuk.hashnode.dev
+- Fixed Mac setup: Command Line Tools for Xcode 26 (matched to macOS 26.0.1; 26.4.1 was incompatible), then Homebrew + git, python, jq
+- Published my first LinkedIn post: the "Excessive Agency" lab lesson
+- ✅ Week 1 complete
+
 ## Progress
 - PortSwigger labs solved: 1
 - OWASP Top 10:2025 mapped: ✅
-- Blog posts: 0
+- Blog: set up (0 posts)
+- LinkedIn posts: 1
 - Portfolio projects: 0/3
