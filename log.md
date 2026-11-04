@@ -86,6 +86,11 @@ Plan: 30 weeks · 1 hr weekdays · 2 hrs weekends · started 29 Oct 2026
 - Published my first LinkedIn post: the "Excessive Agency" lab lesson
 - ✅ Week 1 complete
 
+## Day 7 — Wed 4 Nov 2026 (Week 2 head start)
+- ✅ Solved PortSwigger lab: Username enumeration via different responses
+- Used Burp Intruder (Sniper) to find a valid user (different error message), then brute-forced the password (302 vs 200)
+- Lesson: generic login errors + per-account rate limiting + MFA stop this
+
 ## Progress
 - PortSwigger labs solved: 1
 - OWASP Top 10:2025 mapped: ✅
