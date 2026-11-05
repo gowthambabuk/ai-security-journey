@@ -91,8 +91,15 @@ Plan: 30 weeks · 1 hr weekdays · 2 hrs weekends · started 29 Oct 2026
 - Used Burp Intruder (Sniper) to find a valid user (different error message), then brute-forced the password (302 vs 200)
 - Lesson: generic login errors + per-account rate limiting + MFA stop this
 
+## Day 8 — Thu 5 Nov 2026 (Week 2)
+- ✅ Solved PortSwigger lab: 2FA simple bypass
+- After password login the session was already valid; browsing straight to /my-account skipped 2FA
+- Lesson: enforce MFA server-side on every protected route; treat post-password sessions as
+  "partially authenticated". IdP-based MFA (e.g. Microsoft identity) avoids this by only
+  issuing tokens after MFA.
+
 ## Progress
-- PortSwigger labs solved: 1
+- PortSwigger labs solved: 3
 - OWASP Top 10:2025 mapped: ✅
 - Blog: set up (0 posts)
 - LinkedIn posts: 1
