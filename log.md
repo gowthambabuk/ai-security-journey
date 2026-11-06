@@ -98,8 +98,15 @@ Plan: 30 weeks · 1 hr weekdays · 2 hrs weekends · started 29 Oct 2026
   "partially authenticated". IdP-based MFA (e.g. Microsoft identity) avoids this by only
   issuing tokens after MFA.
 
+## Day 9 — Fri 6 Nov 2026 (Week 2)
+- ✅ Solved PortSwigger lab: Password reset broken logic
+- Reset token wasn't bound to the user; server trusted the `username` field in the body
+- Changed username=wiener → carlos (empty token) → reset Carlos's password → logged in
+- Lesson: bind reset tokens to the account server-side; single-use, random, short-lived, hashed
+- Ties to my custom reset flow: check token-to-user binding
+
 ## Progress
-- PortSwigger labs solved: 3
+- PortSwigger labs solved: 4
 - OWASP Top 10:2025 mapped: ✅
 - Blog: set up (0 posts)
 - LinkedIn posts: 1
