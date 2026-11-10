@@ -1,7 +1,7 @@
 # Learning Log
 
-Goal: Full-stack developer (8 yrs) → AI Security / AppSec Engineer
-Plan: 30 weeks · 1 hr weekdays · 2 hrs weekends · started 29 Oct 2026
+   Goal: Going deeper into application & AI security — labs, notes, projects
+   Plan: 30 weeks · 1 hr weekdays · 2 hrs weekends · started 29 Oct 2026
 
 ---
 
