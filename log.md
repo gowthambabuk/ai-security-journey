@@ -105,9 +105,15 @@ Plan: 30 weeks · 1 hr weekdays · 2 hrs weekends · started 29 Oct 2026
 - Lesson: bind reset tokens to the account server-side; single-use, random, short-lived, hashed
 - Ties to my custom reset flow: check token-to-user binding
 
+## Day 10 — Mon 16 Nov 2026 (Week 3)
+- ✅ Solved PortSwigger lab: Unprotected admin functionality
+  - Found /administrator-panel via robots.txt → deleted carlos
+  - Lesson: enforce access control server-side on every request; a hidden URL is not security
+  - Ties to my work: identity from the token, authorization checked per request
+
 ## Progress
-- PortSwigger labs solved: 4
+- PortSwigger labs solved: 5
 - OWASP Top 10:2025 mapped: ✅
-- Blog: set up (0 posts)
-- LinkedIn posts: 1
+- Blog: draft #1 ready
+- LinkedIn posts: 2
 - Portfolio projects: 0/3
