@@ -110,10 +110,10 @@ Plan: 30 weeks · 1 hr weekdays · 2 hrs weekends · started 29 Oct 2026
   - Found /administrator-panel via robots.txt → deleted carlos
   - Lesson: enforce access control server-side on every request; a hidden URL is not security
   - Ties to my work: identity from the token, authorization checked per request
-
+ 
 ## Progress
 - PortSwigger labs solved: 5
-- OWASP Top 10:2025 mapped: ✅
-- Blog: draft #1 ready
-- LinkedIn posts: 2
-- Portfolio projects: 0/3
+- DSA problems: 4
+- Blog posts published: 1 ✅
+- Applications: ~20
+- LinkedIn posts: 3
