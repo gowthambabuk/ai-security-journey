@@ -113,7 +113,5 @@ Plan: 30 weeks · 1 hr weekdays · 2 hrs weekends · started 29 Oct 2026
  
 ## Progress
 - PortSwigger labs solved: 5
-- DSA problems: 4
 - Blog posts published: 1 ✅
-- Applications: ~20
 - LinkedIn posts: 3
